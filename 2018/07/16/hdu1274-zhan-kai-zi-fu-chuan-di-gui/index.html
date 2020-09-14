@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="hdu1274 展开字符串 递归, QAQ">
-    <meta name="description" content="sadfasfas">
+    <meta name="description" content="病名为菜">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -143,7 +143,7 @@
         <div class="logo-name">QAQ</div>
         <div class="logo-desc">
             
-            sadfasfas
+            病名为菜
             
         </div>
     </div>
@@ -310,7 +310,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    553
+                    689
                 </div>
                 
 
@@ -358,47 +358,27 @@ int dfs(int j)//dfs返回的是字符串的长度-2，记录下来方便下一�
 {
     int num=0;//记录数字的大小
    // printf(":");
-    for(int i=j;i<s.size();++i)//从j开始输出
-    {
-        if(s[i]>='a'&&s[i]<='z')//如果是字母则输出
+    for(int i=j;i<s.size();++i) 从j开始输出="" &#123;="" if(s[i]="">='a'&amp;&amp;s[i]&lt;='z')//如果是字母则输出
         {
             int tem=max(num,1);//num最小是1，这个是为了避免前面是1省略的情况
-            for(int h=0;h<tem;++h)
-            {
-                printf("%c",s[i]);
-            }
-            num=0;//不要忘记将num重新归零
-        }
-        else if(s[i]>='0'&&s[i]<='9')//如果是数字的话那么就进行累计，相当于字符串处理
+            for(int h=0;h<tem;++h) &#123;="" printf("%c",s[i]);="" &#125;="" num="0;//不要忘记将num重新归零" else="" if(s[i]="">='0'&amp;&amp;s[i]&lt;='9')//如果是数字的话那么就进行累计，相当于字符串处理
         {
             num=num*10+s[i]-'0';
-            //cout<<"*";
+            //cout&lt;&lt;"*";
         }
         else if(s[i]=='(')//如果是左括号相当于重新开始
         {
             int tmp=max(num,1);
             int m=0;
-            for(int h=0;h<tmp;++h)
-            {
-                m=dfs(i+1);
-            }
-            i=i+m+1;//直接跳到右括号之后
-            num=0;
-        }
-        else return i-j;//返回字符串长度-2
-    }
-}
-int main(void)
-{
-    int t;
-    cin>>t;
+            for(int h=0;h<tmp;++h) &#123;="" m="dfs(i+1);" &#125;="" i="i+m+1;//直接跳到右括号之后" num="0;" else="" return="" i-j;="" 返回字符串长度-2="" int="" main(void)="" t;="" cin="">&gt;t;
     while(t--)
     {
-        cin>>s;
+        cin&gt;&gt;s;
         dfs(0);//直接从第0位开始
         printf("\n");
     }
-}</code></pre>
+}</tmp;++h)></tem;++h)></s.size();++i)></algorithm></cstdio></string></iostream></code></pre>
+<hr>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -735,7 +715,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">6.5k</span>&nbsp;字
+                class="white-color">6.7k</span>&nbsp;字
             
             
             
