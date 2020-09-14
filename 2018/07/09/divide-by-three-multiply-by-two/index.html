@@ -310,14 +310,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    459
+                    546
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    2 Min
+                    3 Min
                 </div>
                 
 
@@ -360,37 +360,37 @@
 <p>这道题其实就是 按能膜3的数目由高到低排列 因为只有两种方式 一种是除以3一种是乘以2 所以能膜的3的数目肯定是依次递减的</p>
 <p>并且 如果相邻的两者膜3的数目相等 那肯定是数小的在前面 数大的在后面 选择的是乘以2的方式</p>
 <p>所以pair先比较除以3的数目 再比较乘以2的数目。</p>
-<pre class=" language-c++"><code class="language-c++">#include<iostream>
-#include<cstdio>
-#include<algorithm>
-using namespace std;
-typedef long long ll;
-ll n,x;
-pair<ll,ll>a[105];
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cstdio></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> ll<span class="token punctuation">;</span>
+ll n<span class="token punctuation">,</span>x<span class="token punctuation">;</span>
+pair<span class="token operator">&lt;</span>ll<span class="token punctuation">,</span>ll<span class="token operator">></span>a<span class="token punctuation">[</span><span class="token number">105</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-int main(void)
-{
-    ll i,c,t;
-    cin>>n;
-    for(i=0;i<n;++i)
-    {
-        cin>>x;
-        for(t=x,c=0;t%3==0;t/=3)c++;
-        a[i]={-c,x};
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    ll i<span class="token punctuation">,</span>c<span class="token punctuation">,</span>t<span class="token punctuation">;</span>
+    cin<span class="token operator">>></span>n<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        cin<span class="token operator">>></span>x<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>t<span class="token operator">=</span>x<span class="token punctuation">,</span>c<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>t<span class="token operator">%</span><span class="token number">3</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">;</span>t<span class="token operator">/</span><span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>c<span class="token operator">++</span><span class="token punctuation">;</span>
+        a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">-</span>c<span class="token punctuation">,</span>x<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-    }
-    sort(a,a+n);
+    <span class="token punctuation">}</span>
+    <span class="token function">sort</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>a<span class="token operator">+</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    for(int i=0;i<n;++i)
-    {
-        cout<<a[i].first<<'*';
-        cout<<a[i].second<<' ';
-    }
-    return 0;
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        cout<span class="token operator">&lt;&lt;</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>first<span class="token operator">&lt;&lt;</span><span class="token string">'*'</span><span class="token punctuation">;</span>
+        cout<span class="token operator">&lt;&lt;</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>second<span class="token operator">&lt;&lt;</span><span class="token string">' '</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
 
 
-}</code></pre>
+<span class="token punctuation">}</span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -725,7 +725,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">6.7k</span>&nbsp;字
+                class="white-color">24k</span>&nbsp;字
             
             
             

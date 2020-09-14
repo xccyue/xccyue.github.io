@@ -310,14 +310,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    248
+                    432
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    2 Min
                 </div>
                 
 
@@ -341,42 +341,42 @@
 <p>这个题的思路就是由判断abcd相加等于零变为判断ab与cd的和的相反数相等。</p>
 <p>这样复杂度很神奇的减少到了一个很少的步（由n（4）变为2n(2)）</p>
 <p>贴上代码</p>
-<pre class=" language-c++"><code class="language-c++">#include<iostream>
-#include<cstdio>
-#include<string.h>
-#include<algorithm>
-#include<cmath>
-using namespace std;
-int hash1[2000011];
-int main(void)
-{
-    int a, b, c, d;
-    while (scanf("%d%d%d%d", &a, &b, &c, &d) != EOF)
-    {
-        int sum = 0;
-        if (a*b > 0 && b*c > 0 && c*d > 0)//简单剪枝，判断abcd是否都是同号
-        {
-            printf("0\n");
-            continue;
-        }
-        memset(hash1, 0, sizeof(hash1));//每一步不能忘记初始化哈希表
-        for (int i = 1;i <= 100;++i)//先计算ab的和，1000000是防止ab的和是负数
-        {
-            for (int j = 1;j <= 100;++j)
-            {
-                hash1[a*i*i + b*j*j + 1000000]++;
-            }
-        }
-        for (int i = 1;i <= 100;++i)//计算cd和的相反数，并判断此时改数是否在哈希表中
-        {
-            for (int j = 1;j <= 100;++j)
-            {
-                sum += hash1[-c*i*i - d*j*j + 1000000];
-            }
-        }
-        printf("%d\n", sum * 16);//因为x1,x2,x3,x4都有可能是正数或者负数所以有2的4次方种可能性。
-    }
-}</code></pre>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cstdio></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;string.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cmath></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> hash1<span class="token punctuation">[</span><span class="token number">2000011</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d%d%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">,</span> <span class="token operator">&amp;</span>b<span class="token punctuation">,</span> <span class="token operator">&amp;</span>c<span class="token punctuation">,</span> <span class="token operator">&amp;</span>d<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token constant">EOF</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token operator">*</span>b <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> b<span class="token operator">*</span>c <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> c<span class="token operator">*</span>d <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//简单剪枝，判断abcd是否都是同号</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"0\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">continue</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">memset</span><span class="token punctuation">(</span>hash1<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>hash1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//每一步不能忘记初始化哈希表</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>i <span class="token operator">&lt;=</span> <span class="token number">100</span><span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//先计算ab的和，1000000是防止ab的和是负数</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>j <span class="token operator">&lt;=</span> <span class="token number">100</span><span class="token punctuation">;</span><span class="token operator">++</span>j<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                hash1<span class="token punctuation">[</span>a<span class="token operator">*</span>i<span class="token operator">*</span>i <span class="token operator">+</span> b<span class="token operator">*</span>j<span class="token operator">*</span>j <span class="token operator">+</span> <span class="token number">1000000</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>i <span class="token operator">&lt;=</span> <span class="token number">100</span><span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//计算cd和的相反数，并判断此时改数是否在哈希表中</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>j <span class="token operator">&lt;=</span> <span class="token number">100</span><span class="token punctuation">;</span><span class="token operator">++</span>j<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                sum <span class="token operator">+</span><span class="token operator">=</span> hash1<span class="token punctuation">[</span><span class="token operator">-</span>c<span class="token operator">*</span>i<span class="token operator">*</span>i <span class="token operator">-</span> d<span class="token operator">*</span>j<span class="token operator">*</span>j <span class="token operator">+</span> <span class="token number">1000000</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> sum <span class="token operator">*</span> <span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//因为x1,x2,x3,x4都有可能是正数或者负数所以有2的4次方种可能性。</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -584,11 +584,9 @@ standard inp
                             很简单的并查集
 找父节点个数就是需要的桌子数
 调试了好久是因为把find的while写成了if所以每次只查找一次父节点。
-#include
-#include
-&nbsp;#include
-using namespace std;
-int n
+#include&lt;iostream>
+#include&lt;cstdio>
+&amp;nbsp;#includ
                         
                     </div>
                     <div class="publish-info">
@@ -719,7 +717,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">6.7k</span>&nbsp;字
+                class="white-color">24k</span>&nbsp;字
             
             
             

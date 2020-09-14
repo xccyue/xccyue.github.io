@@ -310,7 +310,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    237
+                    286
                 </div>
                 
 
@@ -335,81 +335,81 @@
                 <p>很简单的并查集</p>
 <p>找父节点个数就是需要的桌子数</p>
 <p>调试了好久是因为把find的while写成了if所以每次只查找一次父节点。</p>
-<pre class=" language-c++"><code class="language-c++">#include<iostream>
-#include<cstdio>
-&nbsp;#include<string.h>
-using namespace std;
-int n1, m;
-struct node {
-    int fa;
-};
-node s[1001];
-int sum[1001];
-void sets()
-{
-    for (int i = 0;i < n1;++i)
-    {
-        s[i].fa = i;
-    }
-}
-int find(int r)
-{
-    int n=r;
-    while (n != s[n].fa)
-    {
-        n = s[n].fa;
-    }
-    int i = r, j;
-    while (i !=n )
-    {
-        j = s[i].fa;
-        s[i].fa = n;
-        i = j;
-    }
-    return n;
-}
-void join(int p1, int p2)
-{
-    int x = find(p1);
-    int y = find(p2);
-    //printf("%d %d\n", x, y);
-    if (x != y)
-    {
-        s[x].fa = y;
-    }
-}
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cstdio></span></span>
+<span class="token operator">&amp;</span>nbsp<span class="token punctuation">;</span>#include<span class="token operator">&lt;</span>string<span class="token punctuation">.</span>h<span class="token operator">></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> n1<span class="token punctuation">,</span> m<span class="token punctuation">;</span>
+<span class="token keyword">struct</span> node <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> fa<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+node s<span class="token punctuation">[</span><span class="token number">1001</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> sum<span class="token punctuation">[</span><span class="token number">1001</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">sets</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> n1<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>fa <span class="token operator">=</span> i<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">int</span> r<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token operator">=</span>r<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>n <span class="token operator">!=</span> s<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">.</span>fa<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        n <span class="token operator">=</span> s<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">.</span>fa<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> r<span class="token punctuation">,</span> j<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">!=</span>n <span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        j <span class="token operator">=</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>fa<span class="token punctuation">;</span>
+        s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>fa <span class="token operator">=</span> n<span class="token punctuation">;</span>
+        i <span class="token operator">=</span> j<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> n<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">join</span><span class="token punctuation">(</span><span class="token keyword">int</span> p1<span class="token punctuation">,</span> <span class="token keyword">int</span> p2<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>p1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>p2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//printf("%d %d\n", x, y);</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">!=</span> y<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        s<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>fa <span class="token operator">=</span> y<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
 
-int main(void)
-{
-    int n;
-    scanf("%d", &n);
-    while (n-- > 0)
-    {
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>n<span class="token operator">--</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
 
-        memset(sum, 0, sizeof(sum));
-        scanf("%d%d", &n1, &m);
-        sets();
-        while (m-- > 0)
-        {
-            int p1, p2;
-            scanf("%d%d", &p1, &p2);
-            join(p1-1, p2-1);
-        }
-        for (int i = 0;i < n1;++i)
-        {
-            int x = find(i);
-            //printf("%d\n", x);
-            sum[x] = 1;
-        }
-        int sum1=0;
-        for (int i = 0;i < n1;++i)
-        {
-            sum1 += sum[i];
-        }
-        cout << sum1 << endl;
-    }
-}</code></pre>
+        <span class="token function">memset</span><span class="token punctuation">(</span>sum<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n1<span class="token punctuation">,</span> <span class="token operator">&amp;</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">sets</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>m<span class="token operator">--</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> p1<span class="token punctuation">,</span> p2<span class="token punctuation">;</span>
+            <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>p1<span class="token punctuation">,</span> <span class="token operator">&amp;</span>p2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">join</span><span class="token punctuation">(</span>p1<span class="token number">-1</span><span class="token punctuation">,</span> p2<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> n1<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//printf("%d\n", x);</span>
+            sum<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">int</span> sum1<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> n1<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            sum1 <span class="token operator">+</span><span class="token operator">=</span> sum<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        cout <span class="token operator">&lt;&lt;</span> sum1 <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -639,12 +639,12 @@ Red and BlackTime Limit: 1000 ms
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%B7%B1%E6%90%9C/">
-                        <span class="chip bg-color">深搜</span>
-                    </a>
-                    
                     <a href="/tags/%E6%90%9C%E7%B4%A2/">
                         <span class="chip bg-color">搜索</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B7%B1%E6%90%9C/">
+                        <span class="chip bg-color">深搜</span>
                     </a>
                     
                 </div>
@@ -748,7 +748,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">6.7k</span>&nbsp;字
+                class="white-color">24k</span>&nbsp;字
             
             
             

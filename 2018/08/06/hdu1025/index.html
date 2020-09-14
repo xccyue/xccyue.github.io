@@ -310,14 +310,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    490
+                    633
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    2 Min
+                    3 Min
                 </div>
                 
 
@@ -352,37 +352,37 @@
 <p>就是说丑数肯定是2,3,5,7不断相乘得到的，一开始是2,2<em>2，3,5,7是3,2</em>2,5，3*2,7是4 每一次的丑数都是前面的数乘2,或3或5或7之后的最小数</p>
 <p>所以dp[i]=min(dp[f2]*2,dp[f3]*3,dp[f5]*5,dp[f7]*7)</p>
 <hr>
-<pre class=" language-c++"><code class="language-c++">#include<iostream>
-#include<cstdio>
-using namespace std;
-typedef long long ll;
-ll  dp[6000]={0,1};
-int f2=1,f3=1,f5=1,f7=1;
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cstdio></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> ll<span class="token punctuation">;</span>
+ll  dp<span class="token punctuation">[</span><span class="token number">6000</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> f2<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>f3<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>f5<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>f7<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
 
-int main(void)
-{
-    for(int i=2;i<=5842;++i)
-    {
-        dp[i]=min(min(dp[f2]*2,dp[f3]*3),min(dp[f5]*5,dp[f7]*7));
-        if(dp[i]==dp[f2]*2)f2++;
-        if(dp[i]==dp[f3]*3)f3++;
-        if(dp[i]==dp[f5]*5)f5++;
-        if(dp[i]==dp[f7]*7)f7++;
-    }
-    int n;
-    while(scanf("%d",&n)!=EOF&&n)
-    {
-        if(n%10==1&&n%100!=11)
-            printf("The %dst humble number is %d.\n",n,dp[n]);
-        else if(n%10==2&&n%100!=12)
-            printf("The %dnd humble number is %d.\n",n,dp[n]);
-        else if(n%10==3&&n%100!=13)
-            printf("The %drd humble number is %d.\n",n,dp[n]);
-        else{
-            printf("The %dth humble number is %d.\n",n,dp[n]);
-        }
-    }
-}</code></pre>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span><span class="token number">5842</span><span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">min</span><span class="token punctuation">(</span><span class="token function">min</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>f2<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>f3<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">min</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>f5<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">5</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>f7<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span>dp<span class="token punctuation">[</span>f2<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span>f2<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span>dp<span class="token punctuation">[</span>f3<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">3</span><span class="token punctuation">)</span>f3<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span>dp<span class="token punctuation">[</span>f5<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">5</span><span class="token punctuation">)</span>f5<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span>dp<span class="token punctuation">[</span>f7<span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">7</span><span class="token punctuation">)</span>f7<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token operator">!=</span><span class="token constant">EOF</span><span class="token operator">&amp;&amp;</span>n<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">%</span><span class="token number">10</span><span class="token operator">==</span><span class="token number">1</span><span class="token operator">&amp;&amp;</span>n<span class="token operator">%</span><span class="token number">100</span><span class="token operator">!=</span><span class="token number">11</span><span class="token punctuation">)</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"The %dst humble number is %d.\n"</span><span class="token punctuation">,</span>n<span class="token punctuation">,</span>dp<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">%</span><span class="token number">10</span><span class="token operator">==</span><span class="token number">2</span><span class="token operator">&amp;&amp;</span>n<span class="token operator">%</span><span class="token number">100</span><span class="token operator">!=</span><span class="token number">12</span><span class="token punctuation">)</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"The %dnd humble number is %d.\n"</span><span class="token punctuation">,</span>n<span class="token punctuation">,</span>dp<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">%</span><span class="token number">10</span><span class="token operator">==</span><span class="token number">3</span><span class="token operator">&amp;&amp;</span>n<span class="token operator">%</span><span class="token number">100</span><span class="token operator">!=</span><span class="token number">13</span><span class="token punctuation">)</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"The %drd humble number is %d.\n"</span><span class="token punctuation">,</span>n<span class="token punctuation">,</span>dp<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"The %dth humble number is %d.\n"</span><span class="token punctuation">,</span>n<span class="token punctuation">,</span>dp<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -715,7 +715,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">6.7k</span>&nbsp;字
+                class="white-color">24k</span>&nbsp;字
             
             
             
