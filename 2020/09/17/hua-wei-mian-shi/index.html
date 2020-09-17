@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="poj1321棋盘问题（简单暴搜）, QAQ">
+    <meta name="keywords" content="华为面试, QAQ">
     <meta name="description" content="病名为菜">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>poj1321棋盘问题（简单暴搜） | QAQ</title>
+    <title>华为面试 | QAQ</title>
     <link rel="icon" type="image/jpeg" href="/medias/avatar2.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -245,12 +245,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">poj1321棋盘问题（简单暴搜）</h1>
+                    <h1 class="description center-align post-title">华为面试</h1>
                 </div>
             </div>
         </div>
@@ -270,17 +270,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/poj/">
-                                <span class="chip bg-color">poj</span>
-                            </a>
-                        
-                            <a href="/tags/dfs/">
-                                <span class="chip bg-color">dfs</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -288,8 +280,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Algorithm/" class="post-category">
-                                Algorithm
+                            <a href="/categories/Summary/" class="post-category">
+                                Summary
                             </a>
                         
                     </div>
@@ -301,7 +293,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-04-24
+                    2020-09-17
                 </div>
                 
 
@@ -310,7 +302,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    290
+                    514
                 </div>
                 
 
@@ -332,56 +324,15 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>写了一发简单暴搜发现好久不写自己已经不熟练了（wa了几发）</p>
-<p>wa的原因是我的代码实现出来是从第i行开始每次在下一行都选棋子放</p>
-<p>但其实可以选择跳过这一行不放 下一行放….</p>
-<p>so 代码如下（main里面注释的是之前错误的写法）</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//</span>
-<span class="token comment" spellcheck="true">// Created by xingchaoyue on 2019/4/24.</span>
-<span class="token comment" spellcheck="true">//</span>
-
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cstdio></span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-<span class="token keyword">int</span> n<span class="token punctuation">,</span>k<span class="token punctuation">;</span>
-<span class="token keyword">char</span> mp<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> vis<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> row<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> col<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token keyword">int</span> u<span class="token punctuation">,</span> <span class="token keyword">int</span> num<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>num<span class="token operator">==</span>k<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        res<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>u<span class="token operator">>=</span>n<span class="token punctuation">)</span>
-        <span class="token keyword">return</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>mp<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">'#'</span><span class="token operator">&amp;&amp;</span><span class="token operator">!</span>col<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            col<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-            <span class="token function">dfs</span><span class="token punctuation">(</span>u<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>num<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            col<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token function">dfs</span><span class="token punctuation">(</span>u<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">}</span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">~</span><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>n<span class="token punctuation">,</span><span class="token operator">&amp;</span>k<span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span>n<span class="token operator">!=</span><span class="token operator">-</span><span class="token number">1</span><span class="token operator">&amp;&amp;</span>k<span class="token operator">!=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token function">memset</span><span class="token punctuation">(</span>mp<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>mp<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%s"</span><span class="token punctuation">,</span>mp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">/*
-        for(int i = 0;i&lt;n;++i){
-            memset(col,0,sizeof(col));
-            dfs(i,0);
-        }*/</span>
-        cout<span class="token operator">&lt;&lt;</span>res<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+                <p>其实面试结束已经是一个月之前的事情了…</p>
+<p>整个秋招我就面了华为一家…因为有个笔试绿卡…加上有hr来我们学校群里招人…我是个懒狗只想面试就只去华为面了面…</p>
+<p>我走的好像是留学生提前批…并没有什么正式的界面，在hr的协助下交了简历填了填信息就开始面试了…(hr还给建了个群帮忙安排面试什么的…体验良好…不知道别的公司是不是这样…)</p>
+<p>我面试之前一点也没有准备，对每个公司什么情况一无所知qaq人生中第一次正式的面试有点紧张，但是面了之后就发现还好，大概就是聊聊天做做题。</p>
+<p>大概一二面都是技术面…就简单聊了聊…然后大部分时间就是撸题…就是我一年没训练过生疏了太多了…由于我一些专业课没学过…所以大部分问的都是数据结构…然后三面就聊了聊我的简历一些经历什么的…大概就是心路历程吧</p>
+<p>可能岗位不一样加上简历没什么项目经验的问题吧…主要问的技术相关的并没有什么几次握手之类的东西（我也没学过）</p>
+<p>整体面试的体验就是比较轻松，也没什么压迫感…然后就面试过了…然后被我遗忘了一个月</p>
+<p>总结一下这次的体验就是让我对互联网公司面试有了一个初步了解。</p>
+<p>对看这个博客的人的建议就是多刷题…放轻松…当作聊天就好…简历上真实的写写自己的经历…我是真的感觉在聊天</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -425,7 +376,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://xccyue.github.io/2019/04/24/poj1321-qi-pan-wen-ti-jian-dan-bao-sou/">https://xccyue.github.io/2019/04/24/poj1321-qi-pan-wen-ti-jian-dan-bao-sou/</a>
+                    <a href="https://xccyue.github.io/2020/09/17/hua-wei-mian-shi/">https://xccyue.github.io/2020/09/17/hua-wei-mian-shi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -462,15 +413,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/poj/">
-                                    <span class="chip bg-color">poj</span>
-                                </a>
-                            
-                                <a href="/tags/dfs/">
-                                    <span class="chip bg-color">dfs</span>
-                                </a>
-                            
+                            <span class="chip bg-color">No tag</span>
                         </div>
                     
                 </div>
@@ -513,7 +456,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2019-04-24T09-05-32',
+        id: '2020-09-17T18-45-31',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -537,57 +480,45 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2019/05/05/poj2253-dijistra-bian-xing-dui-you-hua/">
+                <a href="/2020/09/17/hua-wei-mian-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="poj2253(dijkstra变形+堆优化）">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="华为面试">
                         
-                        <span class="card-title">poj2253(dijkstra变形+堆优化）</span>
+                        <span class="card-title">华为面试</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Freddy Frog is sitting on a stone in the middle of a lake. Suddenly he notices Fiona Frog who is sitting on another ston
+                            其实面试结束已经是一个月之前的事情了…
+整个秋招我就面了华为一家…因为有个笔试绿卡…加上有hr来我们学校群里招人…我是个懒狗只想面试就只去华为面了面…
+我走的好像是留学生提前批…并没有什么正式的界面，在hr的协助下交了简历填了填信息就开始面
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-05-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Algorithm/" class="post-category">
-                                    Algorithm
+                            <a href="/categories/Summary/" class="post-category">
+                                    Summary
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%9B%BE/">
-                        <span class="chip bg-color">图</span>
-                    </a>
-                    
-                    <a href="/tags/poj/">
-                        <span class="chip bg-color">poj</span>
-                    </a>
-                    
-                    <a href="/tags/dijkstra/">
-                        <span class="chip bg-color">dijkstra</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -598,32 +529,34 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/04/23/c-zi-fu-chuan-da-xiao-xie-zhuan-huan-han-shu/">
+                <a href="/2020/09/14/guan-yu-zhe-ge-bo-ke-about-my-blog/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="C++字符串大小写转换函数">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="关于这个博客(about my blog)">
                         
-                        <span class="card-title">C++字符串大小写转换函数</span>
+                        <span class="card-title">关于这个博客(about my blog)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return
+                            这个博客创建于13/9/2020，但是里面的博文都是我之前在csdn写的，就….搬了个家（目前大概搬了一半左右）qaq
+创建这个博客的原因是最近想更新博客发现现在的csdn全是广告，而且界面也并不好看，于是就自己搭了一个。本博客的模板来源于
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-04-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-14
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Chaoyue Xing
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Summary/" class="post-category">
+                                    Summary
+                                </a>
+                            
                             
                         </span>
                     </div>
