@@ -4,25 +4,6 @@
   
     
     <entry>
-      <title>华为面试</title>
-      <link href="2020/09/17/hua-wei-mian-shi/"/>
-      <url>2020/09/17/hua-wei-mian-shi/</url>
-      
-        <content type="html"><![CDATA[<p>其实面试结束已经是一个月之前的事情了…</p><p>整个秋招我就面了华为一家…因为有个笔试绿卡…加上有hr来我们学校群里招人…我是个懒狗只想面试就只去华为面了面…</p><p>我走的好像是留学生提前批…并没有什么正式的界面，在hr的协助下交了简历填了填信息就开始面试了…(hr还给建了个群帮忙安排面试什么的…体验良好…不知道别的公司是不是这样…)</p><p>我面试之前一点也没有准备，对每个公司什么情况一无所知qaq人生中第一次正式的面试有点紧张，但是面了之后就发现还好，大概就是聊聊天做做题。</p><p>大概一二面都是技术面…就简单聊了聊…然后大部分时间就是撸题…就是我一年没训练过生疏了太多了…由于我一些专业课没学过…所以大部分问的都是数据结构…然后三面就聊了聊我的简历一些经历什么的…大概就是心路历程吧</p><p>可能岗位不一样加上简历没什么项目经验的问题吧…主要问的技术相关的并没有什么几次握手之类的东西（我也没学过）</p><p>整体面试的体验就是比较轻松，也没什么压迫感…然后就面试过了…然后被我遗忘了一个月</p><p>总结一下这次的体验就是让我对互联网公司面试有了一个初步了解。</p><p>对看这个博客的人的建议就是多刷题…放轻松…当作聊天就好…简历上真实的写写自己的经历…我是真的感觉在聊天</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> Summary </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>关于这个博客(about my blog)</title>
       <link href="2020/09/14/guan-yu-zhe-ge-bo-ke-about-my-blog/"/>
       <url>2020/09/14/guan-yu-zhe-ge-bo-ke-about-my-blog/</url>
